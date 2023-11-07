@@ -1,0 +1,125 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+
+const { title, description, variant = "default", ...attributes } = Astro.props;
+---
+
+<div class:list={["sl-badge", variant]}>
+  <span class="sl-flex stack">
+    <a {...attributes}>
+      <span class="title">{title}</span>
+    </a>
+    {description && <span class="description" set:html={description} />}
+  </span>
+  <Icon name="right-arrow" size="1.333em" class="icon rtl:flip" />
+</div>
+
+<style>
+  .sl-badge {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    border: 1px solid var(--sl-color-border-badge);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: var(--sl-shadow-sm);
+    background-color: var(--sl-color-bg-badge);
+    position: relative;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* a11y fix for https://github.com/withastro/starlight/issues/487 */
+  a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .stack {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .title {
+    color: var(--sl-color-white);
+    font-weight: 600;
+    font-size: var(--sl-text-lg);
+    line-height: var(--sl-line-height-headings);
+  }
+
+  .description {
+    color: var(--sl-color-gray-3);
+    line-height: 1.5;
+  }
+
+  .icon {
+    color: var(--sl-color-gray-3);
+  }
+
+  /* Hover state */
+  div:hover {
+    background: var(--sl-color-gray-7, var(--sl-color-gray-6));
+    border-color: var(--sl-color-gray-2);
+  }
+
+  div:hover .icon {
+    color: var(--sl-color-white);
+  }
+
+  .default {
+    --sl-color-bg-badge: var(--sl-color-accent-low);
+    --sl-color-border-badge: var(--sl-color-accent);
+  }
+
+  .note {
+    --sl-color-bg-badge: var(--sl-color-blue-low);
+    --sl-color-border-badge: var(--sl-color-blue);
+  }
+
+  .danger {
+    --sl-color-bg-badge: var(--sl-color-red-low);
+    --sl-color-border-badge: var(--sl-color-red);
+  }
+
+  .success {
+    --sl-color-bg-badge: var(--sl-color-green-low);
+    --sl-color-border-badge: var(--sl-color-green);
+  }
+
+  .caution {
+    --sl-color-bg-badge: var(--sl-color-orange-low);
+    --sl-color-border-badge: var(--sl-color-orange);
+  }
+
+  .tip {
+    --sl-color-bg-badge: var(--sl-color-purple-low);
+    --sl-color-border-badge: var(--sl-color-purple);
+  }
+
+  :global([data-theme="light"]) .default {
+    --sl-color-bg-badge: var(--sl-color-accent-high);
+  }
+
+  :global([data-theme="light"]) .note {
+    --sl-color-bg-badge: var(--sl-color-blue-high);
+  }
+
+  :global([data-theme="light"]) .danger {
+    --sl-color-bg-badge: var(--sl-color-red-high);
+  }
+
+  :global([data-theme="light"]) .success {
+    --sl-color-bg-badge: var(--sl-color-green-high);
+  }
+
+  :global([data-theme="light"]) .caution {
+    --sl-color-bg-badge: var(--sl-color-orange-high);
+  }
+
+  :global([data-theme="light"]) .tip {
+    --sl-color-bg-badge: var(--sl-color-purple-high);
+  }
+</style>
