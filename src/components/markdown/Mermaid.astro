@@ -1,0 +1,40 @@
+---
+
+---
+
+<button class="code-button text-xs m-0 mb-1" id="show-hide-button"
+  >Show/Hide Mermaid Source Code</button
+>
+
+<span id="mermaid-code" class="hidden"><slot /></span>
+<pre class="mermaid mt-0"></pre>
+
+<script>
+  const mermaidCodes = document.querySelectorAll("#mermaid-code");
+  console.log({ mermaidCodes: mermaidCodes });
+
+  const mermaidDiagrams = document.querySelectorAll(".mermaid");
+  const showHideButtons = document.querySelectorAll("#show-hide-button");
+
+  for (let i = 0; i < mermaidDiagrams.length; i++) {
+    const mermaidCode = mermaidCodes[i] as HTMLElement;
+    const mermaidDiagram = mermaidDiagrams[i] as HTMLElement;
+
+    mermaidDiagram.innerHTML = mermaidCode.innerText;
+    const showHideButton = showHideButtons[i] as HTMLElement;
+    const isShowMermaid = showHideButton.dataset.showMermaid;
+    console.log({ isShowMermaid: isShowMermaid });
+
+    showHideButtons[i].addEventListener("click", () => {
+      mermaidCode.classList.toggle("hidden");
+    });
+  }
+</script>
+
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true });
+  console.log("Loaded Mermaid!");
+</script>
+
+<script></script>

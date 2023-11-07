@@ -1,0 +1,175 @@
+---
+const { isRunnable } = Astro.props;
+---
+
+<head>
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"
+  ></script>
+</head>
+
+<div class={isRunnable ? `not-content text-sm` : `not-content text-sm hidden`}>
+  <button id="runcode" class="code-button mr-2">▶️ Run Code</button>
+  <button id="reset" class="code-button">🔁 Reset</button>
+</div>
+<span id="code" hidden><slot /></span>
+<div id="editor" class="not-content"></div>
+<div id="output" class={isRunnable ? `not-content !mt-0` : `hidden`}></div>
+
+<script>
+  import { basicSetup, EditorView } from "codemirror";
+  import { keymap, lineNumbers } from "@codemirror/view";
+  import { EditorState, Compartment } from "@codemirror/state";
+  import { indentWithTab } from "@codemirror/commands";
+  import { python } from "@codemirror/lang-python";
+  import { runCode, setEngine, setOptions } from "client-side-python-runner";
+  import { dracula } from "thememirror";
+
+  const updateOutput = (
+    newText: string,
+    clearCurrent: boolean = false,
+    view2: EditorView
+  ) => {
+    console.log(view2);
+    let transaction = view2.state.update({
+      changes: { from: 0, to: view2.state.doc.length, insert: `${newText}` },
+    });
+    if (!clearCurrent) {
+      transaction = view2.state.update({
+        changes: { from: view2.state.doc.length, insert: `${newText}` },
+      });
+    }
+    view2.dispatch(transaction);
+  };
+
+  const codeArray = document.querySelectorAll("#code") as NodeListOf<Element>;
+  const editorArray = document.querySelectorAll(
+    "#editor"
+  ) as NodeListOf<Element>;
+  const outputArray = document.querySelectorAll(
+    "#output"
+  ) as NodeListOf<Element>;
+  const runCodeButtonArray = document.querySelectorAll(
+    "#runcode"
+  ) as NodeListOf<Element>;
+  const resetButtonArray = document.querySelectorAll(
+    "#reset"
+  ) as NodeListOf<Element>;
+  codeArray.forEach((codeBlock, i) => {
+    const code = (codeBlock.textContent as string).trim();
+    console.log({ codeBlock: codeBlock });
+    console.log({ code0: code });
+    const editor = editorArray[i];
+    editor.id = `editor${i}`;
+    const output = outputArray[i];
+    output.id = `output${i}`;
+    const localStorageRef = `${window.location.href}-pycode-${i}`;
+    const localStorageVal = localStorage.getItem(localStorageRef);
+
+    // Editor Setup and View
+    let language = new Compartment(),
+      tabSize = new Compartment();
+
+    const extensions = [
+      basicSetup,
+      language.of(python()),
+      keymap.of([indentWithTab]),
+      tabSize.of(EditorState.tabSize.of(4)),
+    ];
+
+    // Remove line numbers if output is hidden (isRunnable is false)
+    if (output.classList.contains("hidden")) {
+      extensions.push(lineNumbers({ formatNumber: () => "" }));
+    }
+
+    let state = EditorState.create({
+      doc: localStorageVal ? localStorageVal : code,
+      extensions: [
+        ...extensions,
+        dracula,
+        EditorView.updateListener.of((update) => {
+          // Compare localstorageVal to changed value - if different, save to local storage
+          if (update.transactions.some((tr) => tr.docChanged)) {
+            console.log("change");
+            localStorage.setItem(localStorageRef, update.state.doc.toString());
+          }
+        }),
+      ],
+    });
+    let view = new EditorView({
+      state,
+      parent: editor,
+    });
+
+    // Output Setup and View
+    let state2 = EditorState.create({
+      doc: `${i}: Click on the Run Code button to run the code.`,
+      extensions: [
+        basicSetup,
+        EditorState.readOnly.of(true),
+        lineNumbers({ formatNumber: () => "" }),
+      ],
+    });
+    let view2 = new EditorView({
+      state: state2,
+      parent: output,
+    });
+
+    // Run Code Button
+    const runCodeButton = runCodeButtonArray[i];
+    runCodeButton.id = `runcode${i}`;
+    runCodeButton.addEventListener("click", async () => {
+      await setEngine("skulpt");
+      setOptions({
+        output: (output) => {
+          updateOutput(output, false, view2);
+        },
+        error: (error) => {
+          console.log({ error: error });
+          updateOutput("\n=== ERROR ===\n" + error["error"], false, view2);
+        },
+        pythonVersion: 3,
+      });
+      updateOutput("", true, view2);
+      await runCode(view.state.doc.toString());
+    });
+
+    // Reset Code Button
+    const resetButton = resetButtonArray[i];
+    resetButton.id = `resetcode${i}`;
+    resetButton.addEventListener("click", () => {
+      console.log("Reset Code");
+      if (view.state.doc.toString() != code) {
+        if (
+          !confirm(
+            "Are you sure you want to reset this code block? This will delete your saved edits and reset the code to the original. This cannot be undone."
+          )
+        ) {
+          return;
+        }
+      }
+      localStorage.setItem(localStorageRef, code);
+      let transaction = view.state.update({
+        changes: { from: 0, to: view.state.doc.length, insert: code },
+      });
+      view.dispatch(transaction);
+      console.log({ code: code });
+      updateOutput(
+        `${i}: Click on the Run Code button to run the code.`,
+        true,
+        view2
+      );
+    });
+  });
+</script>
+
+<style>
+  .code-button {
+    background-color: transparent;
+    /* color: var(--sl-color-text-invert); */
+    /* background-color: var(--sl-color-text-accent); */
+    color: white;
+    background-color: #44475a;
+    cursor: pointer;
+    font-weight: 500;
+  }
+</style>

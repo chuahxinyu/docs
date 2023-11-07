@@ -1,0 +1,27 @@
+---
+type Props = {
+  url: string;
+  title: string;
+};
+
+const { url, title } = Astro.props;
+
+// example url: https://codepen.io/astrocoders/pen/GRJZQYR
+const splitUrl = url.split("/");
+const user = splitUrl[3];
+const hash = splitUrl[5];
+---
+
+<p
+  class="codepen"
+  data-height="500"
+  data-default-tab="result"
+  data-slug-hash={hash}
+  data-user={user}
+  style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+>
+  <span><a href={url}>{title}</a></span>
+</p>
+
+<script async defer src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+></script>
