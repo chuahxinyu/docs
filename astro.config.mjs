@@ -18,7 +18,7 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "Unimelb Notes",
+          label: "🎓 Unimelb Notes",
           items: [
             {
               label: "About",
@@ -26,28 +26,120 @@ export default defineConfig({
             },
             {
               label: "Year 1",
+              collapsed: true,
               items: [
                 {
                   label: "💻 COMP10001 Foundations of Computing",
+                  collapsed: true,
                   autogenerate: {
-                    directory: "unimelb/comp10001",
+                    directory: "unimelb/year1/comp10001",
+                  },
+                },
+                {
+                  label: "🧮 MAST10006 Calculus 2",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year1/mast10006",
+                  },
+                },
+                {
+                  label: "🔬 PHYC10009 Foundations of Physics",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year1/phyc10009",
                   },
                 },
                 {
                   label: "💻 COMP10002 Foundations of Algorithms",
+                  collapsed: true,
                   autogenerate: {
-                    directory: "unimelb/comp10002",
+                    directory: "unimelb/year1/comp10002",
                   },
                 },
                 {
-                  label: "MAST10006 Calculus 2",
-                  link: "unimelb/mast10006",
+                  label: "🧮 MAST10007 Linear Algebra",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year1/mast10007",
+                  },
+                },
+                {
+                  label: "🗄️ INFO20003 Database Systems",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year1/info20003",
+                  },
+                },
+                {
+                  label: "🎮 CCDP10003 Video Games: Remaking Reality",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year1/ccdp10003",
+                  },
                 },
               ],
             },
             {
               label: "Year 2",
-              items: [],
+              collapsed: true,
+              items: [
+                {
+                  label: "💻 COMP20007 Design of Algorithms",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/comp20007",
+                  },
+                },
+                {
+                  label: "💻 COMP20008 Elements of Data Processing",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/comp20008",
+                  },
+                },
+                {
+                  label: "SWEN20003 Object Oriented Software Development",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/swen20003",
+                  },
+                },
+                {
+                  label: "EDUC10057 Wellbeing, Motivation and Performance",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/educ10057",
+                  },
+                },
+                {
+                  label: "INFO30006 Information Security and Privacy",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/info30006",
+                  },
+                },
+                {
+                  label: "COMP30020 Declarative Programming",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/comp30020",
+                  },
+                },
+                {
+                  label: "COMP30026 Models of Computation",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/comp30026",
+                  },
+                },
+                {
+                  label: "COMP30019 Graphics and Interaction",
+                  collapsed: true,
+                  autogenerate: {
+                    directory: "unimelb/year2/comp30019",
+                  },
+                },
+              ],
             },
             {
               label: "Year 3",

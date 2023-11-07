@@ -1,5 +1,5 @@
 ---
-title: "COMP10002 Foundations of Algorithms Notes"
+title: "[COMP10002] Foundations of Algorithms Cheatsheet"
 description: "Written in Sem 2 2021"
 date: 2021-11-01
 ---
