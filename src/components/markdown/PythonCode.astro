@@ -124,8 +124,9 @@ const { isRunnable } = Astro.props;
           updateOutput(output, false, view2);
         },
         error: (error) => {
-          console.log({ error: error });
-          updateOutput("\n=== ERROR ===\n" + error["error"], false, view2);
+          if (error !== undefined && error["error"] !== undefined) {
+            updateOutput("\n=== ERROR ===\n" + error["error"], false, view2);
+          }
         },
         pythonVersion: 3,
       });
