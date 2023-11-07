@@ -22,14 +22,21 @@ const { isRunnable } = Astro.props;
   import { indentWithTab } from "@codemirror/commands";
   import { python } from "@codemirror/lang-python";
   import { runCode, setEngine, setOptions } from "client-side-python-runner";
-  import { dracula } from "thememirror";
+  import { dracula, ayuLight } from "thememirror";
+
+  // Check localStorage if `starlight-theme` is "dark" or "light"
+  const starlightTheme = localStorage.getItem("starlight-theme");
+  var theme = dracula;
+  if (starlightTheme === "light") {
+    theme = ayuLight;
+  }
 
   const updateOutput = (
     newText: string,
     clearCurrent: boolean = false,
     view2: EditorView
   ) => {
-    console.log(view2);
+    // console.log(view2);
     let transaction = view2.state.update({
       changes: { from: 0, to: view2.state.doc.length, insert: `${newText}` },
     });
@@ -56,8 +63,8 @@ const { isRunnable } = Astro.props;
   ) as NodeListOf<Element>;
   codeArray.forEach((codeBlock, i) => {
     const code = (codeBlock.textContent as string).trim();
-    console.log({ codeBlock: codeBlock });
-    console.log({ code0: code });
+    // console.log({ codeBlock: codeBlock });
+    // console.log({ code0: code });
     const editor = editorArray[i];
     editor.id = `editor${i}`;
     const output = outputArray[i];
@@ -85,11 +92,11 @@ const { isRunnable } = Astro.props;
       doc: localStorageVal ? localStorageVal : code,
       extensions: [
         ...extensions,
-        dracula,
+        theme,
         EditorView.updateListener.of((update) => {
           // Compare localstorageVal to changed value - if different, save to local storage
           if (update.transactions.some((tr) => tr.docChanged)) {
-            console.log("change");
+            // console.log("change");
             localStorage.setItem(localStorageRef, update.state.doc.toString());
           }
         }),
@@ -138,7 +145,7 @@ const { isRunnable } = Astro.props;
     const resetButton = resetButtonArray[i];
     resetButton.id = `resetcode${i}`;
     resetButton.addEventListener("click", () => {
-      console.log("Reset Code");
+      // console.log("Reset Code");
       if (view.state.doc.toString() != code) {
         if (
           !confirm(
@@ -153,7 +160,7 @@ const { isRunnable } = Astro.props;
         changes: { from: 0, to: view.state.doc.length, insert: code },
       });
       view.dispatch(transaction);
-      console.log({ code: code });
+      // console.log({ code: code });
       updateOutput(
         `${i}: Click on the Run Code button to run the code.`,
         true,
@@ -168,8 +175,9 @@ const { isRunnable } = Astro.props;
     background-color: transparent;
     /* color: var(--sl-color-text-invert); */
     /* background-color: var(--sl-color-text-accent); */
-    color: white;
-    background-color: #44475a;
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-bg-inline-code);
+    padding: 0.2rem;
     cursor: pointer;
     font-weight: 500;
   }
