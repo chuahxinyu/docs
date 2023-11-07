@@ -31,6 +31,10 @@ export default defineConfig({
               link: "/",
             },
             {
+              label: "Uni Tips",
+              link: "/tips",
+            },
+            {
               label: "Year 1",
               items: [
                 {
@@ -309,10 +313,6 @@ export default defineConfig({
                   },
                 },
               ],
-            },
-            {
-              label: "Useful Tips",
-              link: "/tips",
             },
           ],
         },
