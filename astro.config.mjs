@@ -22,10 +22,6 @@ export default defineConfig({
           label: "🎓 Unimelb Notes",
           items: [
             {
-              label: "About",
-              link: "/about",
-            },
-            {
               label: "Year 1",
               collapsed: true,
               items: [
