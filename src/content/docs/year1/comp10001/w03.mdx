@@ -4,12 +4,14 @@ description: "Data Types, Variables, Arithmetic Operators"
 date: 2022-01-11
 ---
 
+import { Mermaid, PyCode } from "../../../../components/";
+
 > - [Google Colab](https://colab.research.google.com/drive/13o5MSvhiKnr1rM6AlylziduG2JwH-REm?usp=sharing)
 > - [Google Slides](https://docs.google.com/presentation/d/11Te6n84zVXe1PVs2dLbz_RnGs-CcOhXTyqQoJuRbAZg/edit?usp=sharing)
 
 ## Data Types
 
-{% mermaid %}
+<Mermaid>
 
 ```
 flowchart TB
@@ -28,19 +30,21 @@ flowchart TB
     classDef highlight fill:#eeffcc
 ```
 
-{% /mermaid %}
+</Mermaid>
 
 Above are some data types that we'll be learning in COMP10001. Highlighted are what we've learnt from the lectures so far. Python offers many more built-in data types that can be explored [here](https://docs.python.org/3/library/stdtypes.html).
 
-{% pycode %}
-
 ### String Operations, Functions and Methods
 
-{% pycode %}
+<PyCode isRunnable={true}>
 
 ```python
-# print("Hello")
-# input("Please enter some input: ")
+print("Hello")
+
+example_input = input("Please enter some input: ")
+print("Your input was" + example_input)
+
+# 🗯️ Uncomment the lines below and try them out!
 # print(len("Hello"))
 # print("Hello"[1:3]) # string slicing
 # print("Hello"[4]) # string indexing
@@ -48,38 +52,17 @@ Above are some data types that we'll be learning in COMP10001. Highlighted are w
 # print("hello".upper()) # .upper() method
 ```
 
-{% /pycode %}
-
-```python
-# print(type(123))
-# print(1 + 1) #quickmaths
-# print(1 // 2) # integer division rounds down
-
-# print(type(3.1415))
-# print(1 + 1.0) # int + float = float
-# print(1 / 1) # int / int = float (division creates floats)
-
-# print(type(True))
-# print(bool("")) # empty string
-# print(bool(" ")) # non-empty string
-# print(bool())
-```
-
-{% /pycode %}
-
-### Discussion 1
+</PyCode>
 
 D1. What is a "data type"? Can the data type of an object change?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
-```python
+```
 You can type your answer to D1 here...
 ```
 
-{% /pycode %}
-
-### Discussion 2
+</PyCode>
 
 D2: As a class, ﬁll in the below table with the data types we have studied so far. What is the difference between the second and third type, both being numerical?
 |Type|Example|What does it store?|What can we do with it (functions, operations...)?|How do we convert to it?|
@@ -89,19 +72,17 @@ D2: As a class, ﬁll in the below table with the data types we have studied so 
 ||`3.1415`||||
 ||`True`||||
 
-{% pycode isRunnable=false %}
+<PyCode>
 
-```python
+```
 You can type your answer to D2 here...
 ```
 
-{% /pycode %}
-
-### Exercise 1
+</PyCode>
 
 E1. Look at the following customer data form, and decide which data types (str, int, float, or bool) should be used to store each field.
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```python
 You can type your answer to E1 here...
@@ -116,33 +97,28 @@ You can type your answer to E1 here...
 - Are you interested in further offers?:
 ```
 
-{% /pycode %}
-
-### Exercise 2
+</PyCode>
 
 E2. Evaluate the following
 
-{% pycode isRunnable=false %}
+<PyCode>
 
-```python
+```
 You can type your answer to E2 here...
 
 1. `str(3 + 4) + "cakes"`
 2. `int(5/2)`
 3. `float("357"+ "."+ "23")`
 4. `bool("anything")`
-
 ```
 
-{% /pycode %}
+</PyCode>
 
 ## Arithmetic Operators
 
-### Discussion 3: Operators
+:::note[Operators]
 
-{% toast type="col-detail" summary="Arithmetic Operators" %}
-
-> We'll be learning more about Operators in in [Week 4](w04.md)
+> We'll be learning more about Operators in in [Week 4](w4)
 
 ![](/assets/comp10001/operator.excalidraw.png)
 
@@ -156,65 +132,64 @@ You can type your answer to E2 here...
   - `-` subtraction (also a unary operator; make number negative)
   - `+` addition (also a unary operator; make number positive)
 
-{% /toast %}
+:::
 
 D3. What is an “operator”? Which operators have we
 learned so far and what do they do?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```python
 You can type your answer to D3 here...
 ```
 
-{% /pycode %}
+</PyCode>
 
-### Discussion 4: Operator Overloading
+D4. What is “operator overloading”? What is the difference between using + with numerical types and strings/sequences?
 
-{% toast type="col-detail" summary="Operator Overloading Example" %}
-{% pycode %}
+<PyCode>
 
+```python
+You can type your answer to D4 here...
 ```
+
+</PyCode>
+
+:::tip[Operator Overloading]
+
+Here's an example of operator overloading:
+
+<PyCode isRunnable>
+
+```python
 # Example of Operator Overloading
 print(1 + 1) # int + int
 print("1" + "1") # str + str
 # print("1" + 1) # str + int -- what do you think this will do? 🤔
 ```
 
-{% /pycode %}
-{% /toast %}
+</PyCode>
 
-D4. What is “operator overloading”? What is the difference between using + with numerical types and strings/sequences?
-
-{% pycode isRunnable=false %}
-
-```python
-You can type your answer to D3 here...
-```
-
-{% /pycode %}
+:::
 
 ## Variables
 
-### Discussion 5
-
 D5. What is a “variable”? How do we use variables and why are they helpful?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```
 You can type your answer to D5 here...
 ```
 
-{% /pycode %}
-
-### Exercise 3
+</PyCode>
 
 E3. Evaluate the following given the assignments a = 1, b = 2, c = 2.0:
 
-{% pycode isRunnable=false %}
+<PyCode>
 
-```python
+```
+You can type your answer to E3 here...
 
 1. `a / a`
 2. `b + b`
@@ -226,16 +201,15 @@ E3. Evaluate the following given the assignments a = 1, b = 2, c = 2.0:
 8. `(a + b) / c`
 ```
 
-{% /pycode %}
-
-### Exercise 4
+</PyCode>
 
 E4. What is the output of the following? Why?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```
 You can type your answer to E4 here...
+
 1. `123 + 123`
 2. `"123" + "123"`
 3. `"123" + 123`
@@ -244,41 +218,45 @@ You can type your answer to E4 here...
 6. `"3" * "4"`
 ```
 
-{% /pycode %}
+</PyCode>
 
 ## Extra Questions
 
-### Extra Question 6: input()
-
 EQ6. How does the `input()` function work?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```
 You can type your answer to EQ6 here...
 ```
 
-{% /pycode %}
-
-### Extra Question 7: Literals
+</PyCode>
 
 EQ7. What is a literal?
 
-{% pycode isRunnable=false %}
+<PyCode>
 
 ```
 You can type your answer to EQ7 here...
 ```
 
-{% /pycode %}
-
-### Extra Question 8: Floating Point Error
+</PyCode>
 
 EQ8. Why does 0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1+0.1 equal 0.9999999999999999 and not 1.0?
 
-{% toast type="col-detail" summary="Floating Point Error Code Example" %}
+<PyCode>
 
-{% pycode %}
+```
+You can type your answer to EQ8 here...
+```
+
+</PyCode>
+
+:::tip[Floating Point Error]
+
+Here's an example of floating point error:
+
+<PyCode isRunnable>
 
 ```python
 # Discussion 8: Floating Point Error
@@ -288,23 +266,14 @@ print(1.2 - 1.0) # what do you expect the answer to be?
 # print(((1.2 * 10) - (1.0 * 10)) / 10) # Solution 1: turn the floats to whole numbers
 ```
 
-{% /pycode %}
-
-{% /toast %}
-
-{% pycode isRunnable=false %}
-
-```
-You can type your answer to EQ8 here...
-```
-
-{% /pycode %}
+</PyCode>
+:::
 
 ## Problems
 
 ### Problem 1
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 """
@@ -314,11 +283,11 @@ for their birth date, so print both.
 """
 ```
 
-{% /pycode %}
+</PyCode>
 
 ### Problem 2
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 """
@@ -327,11 +296,11 @@ together, printing the equation in the form 1 * 2 = 2 for the case of 1 and 2.
 """
 ```
 
-{% /pycode %}
+</PyCode>
 
 ### Problem 3
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 """
@@ -341,4 +310,4 @@ prints the corresponding value in Celsius. The conversion formula is below:
 """
 ```
 
-{% /pycode %}
+</PyCode>
