@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://chuahxinyu.github.io",
+  base: "/docs",
   integrations: [
     starlight({
       title: "Xin Yu's Docs",
