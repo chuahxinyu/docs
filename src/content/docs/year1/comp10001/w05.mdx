@@ -5,8 +5,18 @@ description: "Functions and Methods, Lists and Tuples, Loops"
 date: 2022-03-29
 ---
 
+import { PyCode } from "../../../../components/";
+
 > - [Google Colab](https://colab.research.google.com/drive/14UkPWCcxFWElB1yNRbJ2fgonOrJexYC3?usp=sharing)
 > - [Google Slides](https://docs.google.com/presentation/d/1VH5XPKs5t7ikBQ1c0Vqp2mi2WYhS5yHXPIAtqWA6wIM/edit?usp=sharing)
+
+<iframe
+  src="https://docs.google.com/presentation/d/e/2PACX-1vQuYNEh3xF2-_OWFS9TO7fcSvpoeOsYdEdEu7B5p74PwMMbg9jx48MVtLDsvNGTHOh0pmj0FK9AF0E9/embed"
+  frameborder="0"
+  allowfullscreen="true"
+  mozallowfullscreen="true"
+  webkitallowfullscreen="true"
+></iframe>
 
 ## Coming Up
 
@@ -14,13 +24,17 @@ date: 2022-03-29
 - Lists and Tuples
 - Loops
 
-
 ## Functions vs Methods
-### Discussion 1
 
 D1: What is a “method”? How do methods differ from functions? How are they the same?
 
-### Exercise 1
+<PyCode>
+
+```
+You can type your answer to D1 here...
+```
+
+</PyCode>
 
 E1: Evaluate the following method calls given the assignment `s = "Computing is FUN!"` Think about the input and output of each method. You’re not expected to know all methods for all types: if you haven’t seen some of these before, your best guess based on the name will probably be right!
 
@@ -31,15 +45,27 @@ E1: Evaluate the following method calls given the assignment `s = "Computing is 
 5. `s.strip('!')`:
 6. `s.replace('i', '!')`:
 
-### Discussion 2: Lists and Tuples
+## Lists and Tuples
 
 D2: What is the difference between a “list” and a “tuple”?
 
-### Discussion 3: Adding and Removing Items in List
+<PyCode>
+
+```
+You can type your answer to D2 here...
+```
+
+</PyCode>
 
 D3: How do we add and remove items from a list?
 
-### Exercise 2
+<PyCode>
+
+```
+You can type your answer to D3 here...
+```
+
+</PyCode>
 
 E2: Evaluate the following given the assignment lst = [2, ("green", "eggs", "ham"), False]
 
@@ -49,23 +75,47 @@ E2: Evaluate the following given the assignment lst = [2, ("green", "eggs", "ham
 4. `lst.append(5); print(lst)`:
 5. `lst.pop(2); print(lst)`:
 
-### Discussion 4: Iteration
+## Loops
 
 D4: What is “iteration” in programming? Why do we need it?
 
-### Discussion 5: Python Loops
+<PyCode>
+
+```
+You can type your answer to D4 here...
+```
+
+</PyCode>
 
 D5: What are the two main types of loop in python? How do we write them?
 
-### Discussion 6: Loop Variables
+<PyCode>
+
+```
+You can type your answer to D5 here...
+```
+
+</PyCode>
 
 D6: What do we mean by the “loop variable” in a for loop?
 
-### Discussion 7
+<PyCode>
+
+```
+You can type your answer to D6 here...
+```
+
+</PyCode>
 
 D7: What are the differences between the two main types of loops? In which situations are they used?
 
-### Exercise 3
+<PyCode>
+
+```
+You can type your answer to D7 here...
+```
+
+</PyCode>
 
 E3: What is the output of the following snippets of code containing loops?
 
@@ -112,19 +162,23 @@ for word in text.split():
 print(long_words, "words were too long")
 ```
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 # you can use this code cell to check your answers
 ```
 
-{% /pycode %}
-
-### Discussion 8
+</PyCode>
 
 D8: Is it always possible to convert a while loop into a for loop and vice versa? How do we do it?
 
-### Exercise 4
+<PyCode>
+
+```
+You can type your answer to D8 here...
+```
+
+</PyCode>
 
 E4: Rewrite the loops in question 3a and 3b converting for loops to while loops and vice versa. (We’ll include answers for c and d for good measure)
 
@@ -147,40 +201,43 @@ for ingredient in ("corn", "pear", "chilli", "fish"):
         print(ingredient, "is not!")
 ```
 
+## Problems
+
 ### Problem 1
 
 P1: Write a function which takes a positive integer input n and prints the thirteen times tables from 1 _ 13 until n _ 13.
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 def thirteen_table(n):
     pass
 ```
 
-{% /pycode %}
+</PyCode>
 
 ### Problem 2
 
 P2: Write a function which converts a temperature between degrees Celsius and Fahrenheit. It should take a ﬂoat, the temperature to convert, and a string, either 'c' or 'f' indicating a conversion from degrees Celsius and Fahrenheit respectively. The formulae for conversion are below.
-{% pycode %}
+
+<PyCode isRunnable>
 
 ```
 def conver_temp(degrees, unit):
     pass
 ```
 
-{% /pycode %}
+</PyCode>
 
 ### Problem 3
 
 P3: Write a function which takes a tuple of strings and returns a list containing only the strings which contain at least one exclamation mark or asterisk symbol. words\*with\*symbols(('hi', 'there!', '\*\*\*')) should return ['there!', '_\_\*'].
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 def words_with_symbols(words):
     # write your code here
 ```
 
-{% /pycode %}
+</PyCode>

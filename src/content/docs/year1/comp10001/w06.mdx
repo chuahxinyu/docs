@@ -5,8 +5,18 @@ description: "Dictionaries, Sets, None and Sorting"
 date: 2022-04-04
 ---
 
+import { PyCode } from "../../../../components/";
+
 > - [Google Colab](https://colab.research.google.com/drive/198RF7ZT8-_eH7QEXCOdXiSZzIWR6D2Ht?usp=sharing)
 > - [Google Slides](https://docs.google.com/presentation/d/1vJA24SuyoVh8auylS-xSa7fUK8E-fUlJup3IOp_bmQo/edit?usp=sharing)
+
+<iframe
+  src="https://docs.google.com/presentation/d/e/2PACX-1vR_wLFt0TGmvwZmqGOvaqh9ooyIW-srYpk2tz1W1Q0N-1B9YNbTUqKiX5DnPF_fRAkIxudP0k_T_PHc/embed?start=false&loop=false&delayms=3000"
+  frameborder="0"
+  allowfullscreen="true"
+  mozallowfullscreen="true"
+  webkitallowfullscreen="true"
+></iframe>
 
 ## Coming Up
 
@@ -15,9 +25,7 @@ date: 2022-04-04
 - Sets
 - `None` and `sort()` vs `.sorted()`
 
-## Writing Nice Code
-
-{% toast type="col-detail" summary="Notes on Writing Nice Code" %}
+:::note[Writing Nice Code]
 
 - ✅ Do
   - Be clear and efficient
@@ -28,11 +36,9 @@ date: 2022-04-04
 - ❌ Don't
   - Have lots of repetition
 
-{% /toast %}
+:::
 
-### Problem 1
-
-Do the following code snippets do the same thing? What are some advantages and disadvantages of each snippet? What if we needed a hundred different types of tool?
+E1. Do the following code snippets do the same thing? What are some advantages and disadvantages of each snippet? What if we needed a hundred different types of tool?
 
 Example A:
 
@@ -64,9 +70,7 @@ for part in parts:
     print(get_str(part))
 ```
 
-### Problem 2
-
-Consider the following while loop and two conversions to for loops. Are the two for loops equivalent? Why might you choose one over the other?
+E2. Consider the following while loop and two conversions to for loops. Are the two for loops equivalent? Why might you choose one over the other?
 
 Original While Loop:
 
@@ -94,11 +98,7 @@ for item in items:
     print(f"we need to buy more {item}")
 ```
 
-### Discussion 1
-
-### Dictionary Operations
-
-{% toast type="col-detail" summary="Notes on Dictionary Operations" %}
+:::note[Dictionary Operations]
 
 - Accessing
   - `d[key]` access value associated to key - returns `KeyError` if key doesn't exist
@@ -117,9 +117,9 @@ for item in items:
   - `d.items()` returns iterable collection of 2-tuples (key, value)
   - `list(d)` same as `list(d.keys())`
 
-{% /toast %}
+:::
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```python
 d = {
@@ -151,31 +151,44 @@ for item in d.items():
 
 ```
 
-{% /pycode %}
+</PyCode>
 
-### Discussion 2
-
-What is the difference between using the .pop() method on a dictionary and using it on a list?
+D2. What is the difference between using the .pop() method on a dictionary and using it on a list?
 
 ## Sets
 
-{% toast type="col-detail" summary="Notes on Set Operations" %}
+:::note[Set Operations]
 
 ![](/assets/comp10001/w6.excalidraw.png)
 
-{% /toast %}
+:::
 
-### Discussion 3
+D3. In what situations would we use a "set"? How does it differ from other "containers" such as lists and dictionaries?
 
-In what situations would we use a “set”? How does it differ from other “containers” such as lists and dictionaries?
+<PyCode>
 
-### Discussion 4
+```
+You can type your answer to D3 here...
+```
 
-What special operations can we perform on sets? How do we add and remove items from them?
+</PyCode>
 
-### Exercise 3
+D4. What special operations can we perform on sets? How do we add and remove items from them?
 
-Evaluate the following given the assignment d = {"R": 0, "G": 255, "B": 0, "other": {"opacity": 0.6}}. Specify whether the value of d changes as a result. Assume d is reset to its original value each time.
+<PyCode>
+
+```
+You can type your answer to D4 here...
+```
+
+</PyCode>
+
+E3. Evaluate the following given the assignment `d = {"R": 0, "G": 255, "B": 0, "other": {"opacity": 0.6}}`. Specify whether the value of d changes as a result. Assume d is reset to its original value each time.
+
+<PyCode>
+
+```
+You can type your answer to E3 here...
 
 (a) `"R"in d`
 
@@ -192,10 +205,16 @@ Evaluate the following given the assignment d = {"R": 0, "G": 255, "B": 0, "othe
 (g) `d["other"]["blur"] = 0.1`
 
 (h) `d.items()`
+```
 
-### Exercise 4
+</PyCode>
 
-Evaluate the following given the assignment s1 = {1, 2, 4} and s2 = {3, 4, 5}. If s1 or s2 change as a result, give their new value. Assume s1 and s2 are reset to their original values each time.
+E4. Evaluate the following given the assignment `s1 = {1, 2, 4}` and `s2 = {3, 4, 5}`. If s1 or s2 change as a result, give their new value. Assume s1 and s2 are reset to their original values each time.
+
+<PyCode>
+
+```
+You can type your answer to E4 here...
 
 (a) `s1.add(7)`
 
@@ -208,55 +227,61 @@ Evaluate the following given the assignment s1 = {1, 2, 4} and s2 = {3, 4, 5}. I
 (e) `s1.union(s2)`
 
 (f) `s1 - s2`
+```
+
+</PyCode>
+
+## Coding Problems
 
 ### Problem 1
 
-Write a function which takes a string as input and prints the frequency of each character in the string using a dictionary. freq_counts('booboo') should print:
+Write a function which takes a string as input and prints the frequency of each character in the string using a dictionary. `freq_counts('booboo')` should print:
+
 ```
 b 2
 o 4
 ```
 
-{% pycode %}
+<PyCode isRunnable>
 
 ```
 
 ```
 
-{% /pycode %}
+</PyCode>
 
 ### Problem 2
 
-Write a function which takes two lists as input and returns a list containing the numbers which they both have in common. in_common([1, 2, 4], [3, 4, 5]) should return [4].
+Write a function which takes two lists as input and returns a list containing the numbers which they both have in common. `in_common([1, 2, 4], [3, 4, 5])` should return `[4]`.
 
-{% pycode %}
-
-```
+<PyCode isRunnable>
 
 ```
 
-{% /pycode %}
+```
+
+</PyCode>
 
 ### Problem 3
 
-Write a function which takes a dictionary and returns a sorted list containing the unique values in that dictionary. unique_values({'a': 1, 'b': 0, 'c': 0}) should return [0, 1].
+Write a function which takes a dictionary and returns a sorted list containing the unique values in that dictionary. `unique_values({'a': 1, 'b': 0, 'c': 0})` should return `[0, 1]`.
 
-{% pycode %}
-
-```
+<PyCode isRunnable>
 
 ```
 
-{% /pycode %}
+```
+
+</PyCode>
 
 ### Problem 4
 
-Write a function which takes a string, a character and an integer threshold and returns True if the character appears in the string with a frequency above the threshold, False if it appears at or below the threshold, and None if it doesn’t appear at all. above_thresh('I like the letter e', 'e', 3) should return True.
+Write a function which takes a string, a character and an integer threshold and returns True if the character appears in the string with a frequency above the threshold, False if it appears at or below the threshold, and None if it doesn’t appear at all. `above_thresh('I like the letter e', 'e', 3)` should return `True`.
 
-{% pycode %}
-
-```
+<PyCode isRunnable>
 
 ```
 
-{% /pycode %}
+```
+
+</PyCode>
