@@ -1,0 +1,399 @@
+---
+external: false
+title: "W7: Comments and Docstrings, Variable Names and Global Constants, Namespaces, Timely Returns"
+description: "Comments and Docstrings, Variable Names and Global Constants, Namespaces, Timely Returns"
+date: 2022-04-19
+---
+
+import { PyCode } from "../../../../components/";
+
+> - [Google Colab](https://colab.research.google.com/drive/1XFI-XnF71TmIwFCRB7ya-lNnOr7Nj34l?usp=sharing)
+> - [Google Slides](https://docs.google.com/presentation/d/1tkKafIhiIXZnJoDiouZs3fmWFlaGGxUwX05uScg7ES8/edit?usp=sharing)
+
+<iframe
+  src="https://docs.google.com/presentation/d/e/2PACX-1vTJaEBRC2GZv8Tgjsgjj92fNFd8XCmzGftiOWd0UyGSGbg5b26u7uHXb_MaS9CVU-DIPXbBMf4Iu-Vt/embed"
+  frameborder="0"
+  allowfullscreen="true"
+  mozallowfullscreen="true"
+  webkitallowfullscreen="true"
+></iframe>
+
+## Coming Up
+
+- Code Commenting and Documentation
+- Variable Names and Global Constants
+- Local VS Global Namespaces
+- Timely Returns
+
+## Code Commeting and Documentation
+
+D1. Why is it important to write comments for the code we write? Wouldn’t it save time, storage space and processing time to write code without comments?
+
+<PyCode>
+
+```
+You can type your answer to D1 here...
+```
+
+</PyCode>
+
+D2. What is a docstring? What is its purpose?
+
+<PyCode>
+
+```
+You can type your answer to D2 here...
+```
+
+</PyCode>
+
+:::note[Docstrings]
+
+- Ways to structure docstrings
+
+  - short and sweet one-liners
+
+    - example:
+      ```python
+      def multiplier(a, b):
+          """Takes in two numbers, returns their product."""
+          return a*b
+      ```
+
+  - detailed params/args, returns, raises, example
+
+    - examples:
+
+      ```python
+      def add_binary(a, b):
+          """
+          Returns the sum of two decimal numbers in binary digits.
+
+          Parameters
+          ----------
+          a (int): A decimal integer
+          b (int): Another decimal integer
+
+          Returns
+          -------
+          binary_sum (str): Binary string of the sum of a and b
+          """
+          #...
+      ```
+
+- [PEP257 - Docstring Conventions](https://peps.python.org/pep-0257)
+- [What are the most common Python docstring formats? [closed] | stackoverflow](https://stackoverflow.com/questions/3898572/what-are-the-most-common-python-docstring-formats)
+
+<PyCode isRunnable>
+
+```python
+def multiplier(a, b):
+    """Takes in two numbers, returns their product."""
+    return a*b
+print(help(print))
+```
+
+</PyCode>
+
+:::
+
+E1. Fill in the blanks with comments and a docstring for the following function, which ﬁnds the most popular
+animals by counting ballots. An example for ballots is `['dog', 'pig', 'cat', 'pig', 'dog']`,
+in which case the function returns `['dog', 'pig']`. There’s no deﬁnite right or wrong answer here,
+try to develop your own style.
+
+<PyCode>
+
+```python
+def favourite_animal(ballots):
+    """ ... """
+    tally = {}
+
+    # ...
+    for animal in ballots:
+        if animal in tally:
+            tally[animal] += 1
+        else:
+            tally[animal] = 1
+    # ...
+    most_votes = max(tally.values())
+    favourites = []
+    for animal, votes in tally.items():
+        if votes == most_votes:
+            favourites.append(animal)
+    return favourites
+```
+
+</PyCode>
+
+## Variable Names and Global Constants
+
+D3. How should we choose variable names? How do good variable names add to the readability of code?
+
+<PyCode>
+
+```
+You can type your answer to D3 here...
+```
+
+</PyCode>
+
+D4. What are magic numbers? How do we write code without them by using global constants?
+
+<PyCode>
+
+```
+You can type your answer to D4 here...
+```
+
+</PyCode>
+
+E2. Consider the following programs. What are the problematic aspects of their variable names and use of magic numbers? What improvements would you make to improve readability?
+
+```python
+a = float(input("Enter days: "))
+b = a * 24
+c = b * 60
+d = c * 60
+print("There are", b, "hours", c, "minutes,", d, "seconds in", a, "days")
+```
+
+```python
+word = input("Enter text: ")
+x = 0
+vowels = 0
+word_2 = word.split()
+for word_3 in word_2:
+    x += 1
+    for word_4 in word_3:
+        if word_4.lower() in "aeiou":
+            vowels += 1
+if vowels/x > 0.4:
+    print("Above threshold")
+```
+
+<PyCode>
+
+```
+You can type your answer to E2 here...
+```
+
+</PyCode>
+
+D5. What do we mean by mutability? Which data types are mutable out of what we’ve seen?
+
+<PyCode>
+
+```
+You can type your answer to D5 here...
+```
+
+</PyCode>
+
+## Local VS Global Namespaces
+
+D6. What is a namespace?
+
+<PyCode>
+
+```
+You can type your answer to D6 here...
+```
+
+</PyCode>
+
+D7. What do we mean by local and global namespace? What is scope?
+
+<PyCode>
+
+```
+You can type your answer to D7 here...
+```
+
+</PyCode>
+
+E4. What is the output of the following code? Classify the variables by which namespace they belong in.
+
+```python
+def foo(x, y):
+    a = 42
+    x, y = y, x
+    print(a, b, x, y)
+a, b, x, y = 1, 2, 3, 4
+foo(17, 4)
+print(a, b, x, y)
+```
+
+<PyCode>
+
+```
+You can type your answer to E4 here...
+```
+
+</PyCode>
+
+E3. What is the output of this code? Why?
+
+<PyCode isRunnable>
+
+```python
+def mystery(x):
+    x.append(5)
+    x[0] += 1
+    print("mid-mystery:", x)
+my_list = [1,2]
+print(my_list)
+mystery(my_list)
+print(my_list)
+mystery(my_list.copy())
+print(my_list)
+```
+
+</PyCode>
+
+<PyCode>
+
+```
+You can type your answer to E3 here...
+```
+
+</PyCode>
+
+E4. Something is wrong with the following code. What will the current code output? How could you fix it?
+
+```python
+def invert_grid(grid):
+    new_grid = [[0] * len(grid[0])] * len(grid)
+    # print(new_grid)
+
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            new_grid[i][j] = 1 - grid[i][j]
+            print(new_grid)
+    return new_grid
+
+grid = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+print(invert_grid(grid))
+
+# [[0, 1, 1], [1, 0, 1], [1, 1, 0]]
+```
+
+<PyCode>
+
+```
+You can type your answer to E4 here...
+```
+
+</PyCode>
+
+D8. When is it useful to return early? How can it make our code safer and more efﬁcient?
+
+<PyCode>
+
+```
+You can type your answer to D8 here...
+```
+
+</PyCode>
+
+D9. What are helper functions? How can they make our code more readable and reusable?
+
+<PyCode>
+
+```
+You can type your answer to D9 here...
+```
+
+</PyCode>
+
+E5. What is the output of the following code? Classify the variables by which namespace they belong in.
+
+```python
+def foo(x, y):
+    a = 42
+    x, y = y, x
+    print(a, b, x, y)
+
+a, b, x, y = 1, 2, 3, 4
+foo(17, 4)
+print(a, b, x, y)
+```
+
+<PyCode>
+
+```
+You can type your answer to E5 here...
+```
+
+</PyCode>
+
+## Timely Returns
+
+E6. Compare the two functions below. Are they equivalent? Why would we prefer one over the other?
+
+```python
+def noletter_1(words, letter='z'):
+    for word in words:
+        if letter in word:
+            return False
+    return True
+def noletter_2(words, letter='z'):
+    no_z = True
+    for word in words:
+        if letter in word:
+            no_z = False
+    return no_z
+
+wordlist = ['zizzer'] + ['aardvark'] * 1_000_000
+print(noletter_1(wordlist))
+print(noletter_2(wordlist))
+```
+
+## Problems
+
+### Problem 1
+
+Write a function which takes a list of words and checks whether any of those words are palindromes
+(spelled the same way backwards as forwards, like “hannah”). It should return True if there are any
+palindromes and False if there are none. Use a timely return to save some time!
+`any_palindrome(['hannah', 'sven', 'mei'])` should return True.
+
+<PyCode isRunnable>
+
+```python
+def any_palindrome(words):
+    #...
+print(any_palindrome(['hannah', 'sven', 'mei']))
+```
+
+</PyCode>
+
+### Problem 2
+
+Write a function which takes a list of lists of integers and returns a sorted list containing the unique num-
+bers. For example `unique_2d_list([[1, 5, 3], [2], [5, 1, 2]])` should return `[1, 2, 3, 5]`.
+
+<PyCode isRunnable>
+
+```python
+def unique_2d_list(list_2d):
+    #...
+print(unique_2d_list([[1, 5, 3], [2], [5, 1, 2]]))
+```
+
+</PyCode>
+
+### Problem 3
+
+Write a function which takes a string and returns a 2-tuple containing the most common character in the
+string and its frequency. In the case of a tie, it should return the character which occurs ﬁrst in the text.
+`most_common_char('hi there')` should return `('h', 2)`.
+
+<PyCode isRunnable>
+
+```python
+def most_common_char(text):
+    #...
+```
+
+</PyCode>
