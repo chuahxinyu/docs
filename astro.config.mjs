@@ -3,8 +3,8 @@ import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import remarkMath from "remark-math";
-// import rehypeMathjax from "rehype-mathjax";
 import rehypeKatex from "rehype-katex";
+import rehypeExternalLinks from "rehype-external-links";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +12,7 @@ export default defineConfig({
   base: "/unimelb-notes",
   markdown: {
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeKatex, rehypeExternalLinks],
   },
   integrations: [
     starlight({
@@ -383,7 +383,7 @@ export default defineConfig({
           collapsed: false,
           autogenerate: {
             directory: "other",
-          }
+          },
         },
       ],
     }),
