@@ -16,7 +16,7 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: "🎓 Unimelb Notes",
+      title: "🎓 Xin Yu's NoteZzz",
       social: {
         github: "https://github.com/chuahxinyu/unimelb-notes",
       },
@@ -27,7 +27,7 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: "🎓 Unimelb Notes",
+          label: "📚 Unimelb Notes",
           badge: {
             text: "ARCHIVE",
             variant: "danger",
@@ -377,6 +377,13 @@ export default defineConfig({
               },
             },
           ],
+        },
+        {
+          label: "🎱 Other",
+          collapsed: false,
+          autogenerate: {
+            directory: "other",
+          }
         },
       ],
     }),
