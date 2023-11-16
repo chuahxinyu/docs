@@ -1,13 +1,19 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
-
 import react from "@astrojs/react";
+import remarkMath from "remark-math";
+// import rehypeMathjax from "rehype-mathjax";
+import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://chuahxinyu.github.io",
   base: "/unimelb-notes",
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
+  },
   integrations: [
     starlight({
       title: "🎓 Unimelb Notes",
@@ -17,6 +23,7 @@ export default defineConfig({
       customCss: [
         // Path to your Tailwind base styles:
         "./src/tailwind.css",
+        "./src/katex.css",
       ],
       sidebar: [
         {
