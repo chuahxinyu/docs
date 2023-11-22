@@ -22,3 +22,8 @@ The math, which is written in LaTeX, is also rendered using plugins using [remar
 - Finding and replacing md png paths
   - Used for moving pngs' directories
   - `\((\S+).png\)` -> `![](/src/assets/mast10006/$1.png)`
+
+## Resources
+- https://jordemort.dev/blog/remark-all-the-things/
+- https://kroki.io/
+- https://www.npmjs.com/package/rehype-accessible-emojis
