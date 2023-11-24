@@ -27,3 +27,14 @@ The math, which is written in LaTeX, is also rendered using plugins using [remar
 - https://jordemort.dev/blog/remark-all-the-things/
 - https://kroki.io/
 - https://www.npmjs.com/package/rehype-accessible-emojis
+
+## Inspiration
+- https://www.cassie.codes/
+- https://robbowen.digital/
+- https://www.jemimaabu.com/
+- https://braydoncoyer.dev/
+- https://www.rickwaalders.com/about
+- https://bchiang7.github.io/v3/
+- https://adriengervaix.com/index.html
+- https://sld.codes/
+- https://www.joshwcomeau.com/

@@ -1,3 +1,126 @@
 ---
 title: Trading Terminology
 ---
+
+- Bid
+  - The price at which a **buyer** is willing to purchase a financial instrument
+  - **B**uyer --> **B**id
+- Ask
+  - The price at which a **seller** is willing to sell a financial instrument
+- Spread
+  - The **difference** between the bid and ask prices
+  - Represents the **cost** of trading and **liquidity** of a particular instrument
+- Long
+  - A position taken by a trader when they expect the price of an asset to **increase**
+  - Buy low, sell high
+- Short
+  - A position taken by a trader when they expect the price of an asset to **decrease**
+  - Sell high, buy low
+- Market Order
+  - An order to buy or sell a financial instrument **immediately** at the best available **current price**
+- Limit Order
+  - An order to buy or sell a financial instrument at a **specified** price or **better**
+  - Ensures that the trade is executed at the desired price or a more favourable price
+- Stop Order
+  - An order to buy or sell a financial instrument when the price reaches a specified level
+  - Used to **limit** losses or **protect** profits
+- Volatility
+  - A measure of the price **fluctuations** of a financial instrument over a certain period
+  - HIGHER volatility
+    - HIGHER risk
+    - HIGHER potential for profit or loss
+- Liquidity
+  - The ability to buy or sell a financial instrument **quickly**without significantly affecting its price
+  - HIGH liquidity
+    - large volume of buyers and sellers
+- Margin*
+  - the amount of **funds** or collateral required to enter into a **leveraged position**
+  - allows traders to control larger positions with a smaller amount of capital
+  - required to be deposited before trading futures or selling options
+- Stop Loss
+  - An order placed to automatically **sell** a security or **close** a position when the price reaches a **specified** level
+  - Used to **limit** potential **losses**
+- Scalp
+  - Profiting off of **small price changes** and making a fast profit off reselling
+  - Positive scalp: trader makes money
+  - Negative scalp: trader loses money
+  - Scratch: trader breaks even (no profit or loss)
+- Equity
+  - shareholders' equity, represents the amount of **money** that would be **returned** to a company's shareholders if all of the **assets** were **liquidated** and all of the company's **debt** was **paid off** in the case of liquidation
+- Share
+  - A unit of **ownership** interest in a corporation or financial asset
+  - Many companies issue shares, but only the shares of **publicly traded** companies are listed on stock exchanges
+- Dividend
+  - Distribution of **corporate earnings** to eligible **shareholders**
+- Index
+  - a **number** indicating the **performance** of a **group** of financial instruments
+  - a fictional number - can't be traded directly
+  - exposure to the index performance can be gained in the form of futures, swaps, ETFs, spreads, options
+- Derivative
+  - **financial contracts**, set between two or more parties that **derive** their value from an **underlying asset**, group of assets or benchmark
+  - can be used to hedge risk or to speculate on the price movement of the underlying asset
+  - eg. futures contracts, forwards, options, swaps
+- Future
+  - a **contract** to buy or sell a particular commodity asset, or security at a **predetermined** price at a **specified** time in the **future**
+- Option
+  - financial derivatives that give buyers the **right**, but not the **obligation**, to buy or sell an underlying asset at an agreed-upon price and date
+- Call option
+  - type of option that gives the holder the right, but not the obligation, to **buy** the underlying asset at a specific price (the strike price) within a specific period of time
+- Put option
+  - type of option that gives the holder the right, but not the obligation, to **sell** the underlying asset at a specific price (the strike price) within a specific period of time
+- Strike Price
+  - **predetermined** price at which the underlying asset can be bought or sold when exercising an options contract
+- Premium
+  - **price** that the buyer of an **options contract** pays to the seller
+  - represents the cost of the option
+  - determined by factors such as the strike price, time to expiration, volatility and underlying asset price
+- In-The-Money (ITM)
+  - a situation where the price of the underlying asset it **favourable** for exercising the option
+  - for a call (buying) option: market price > strike price
+  - for a put (selling) option: market price < strike price
+- Out-Of-The-Money (OTM)
+  - a situation where the price of the underlying asset is **unfavourable** for exercising the option
+  - for a call (buying) option: market price < strike price
+  - for a put (selling) option: market price > strike price
+- At-The-Money (ATM)
+  - a situation where the price of the underlying asset is **equal** to the strike price
+- Intrinsic Value
+  - value of an option if it were exercised **immediately**
+  - for a call (buying) option: intrinsic value = market price - strike price, if positive
+  - for a put (selling) option: intrinsic value = strike price - market price, if positive
+- Time Value
+  - portion of an option's premium that is not attributed to its intrinsic value
+  - represents **potential** for the option to **gain additional value** before expiration
+  - influenced by the time remaining until expiration, volatility and interest rates
+- Implied Volatility
+  - **estimate** of the **future volatility** of the underlying asset price, as implied by the market prices of options
+  - reflects **market expectations** and influences option **premiums**
+- Delta, $\delta$
+  - measure of the **sensitivity** of the options price to **changes** in the price of the **underlying asset**
+  - represents the **expected change** in the options price for a **$1** change in the **underlying asset price**
+- Gamma, $\gamma$
+  - measure of the **rate of change** in an option's **delta** in response to changes in the price of the **underlying asset**
+  - indicates how much the delta will change as the underlying asset price moves
+- Theta, $\theta$
+  - measure of the **rate** at which the value of an option **decreases** over time due to the **passage of time**
+  - represents the **time decay** of an option's **premium**
+- Vega
+  - measure of the **sensitivity** of an option's price to changes in implied **volatility**
+  - indicates how much the **option price** is expected to **change** for a **1%** change in **implied volatility**
+- Option Series
+  - a **listing** of **all available options contracts** for a particular underlying asset, displaying various **strike prices** and **expiration dates**
+- DAY order
+  - an order that will **expire** (cancelled) if it is not executed on the **same trading day** it was placed
+- GTC order
+  - (Good-Til-Cancelled)
+  - an order that will remain active until it is **executed** or **cancelled**
+  - potentially spanning multiple trading sessions
+- IOC order
+  - (Immediate or Cancel)
+  - an order that must be executed **immediately**, and any **unfilled** portion of the order is **cancelled**
+- FOK order
+  - (Fill or Kill)
+  - an order that must be filled **immediately** in its **entirety**; if this is not possible, the entire order is **cancelled**
+- FPGA
+  - Field Programmable Gate Array
+  - an electronic device used for processing financial market data and executing trades at extremely high speeds
