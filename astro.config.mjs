@@ -9,7 +9,7 @@ import rehypeExternalLinks from "rehype-external-links";
 // https://astro.build/config
 export default defineConfig({
   site: "https://chuahxinyu.github.io",
-  base: "/unimelb-notes",
+  base: "/notezzz",
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeExternalLinks],
@@ -18,7 +18,7 @@ export default defineConfig({
     starlight({
       title: "🎓 Xin Yu's NoteZzz",
       social: {
-        github: "https://github.com/chuahxinyu/unimelb-notes",
+        github: "https://github.com/chuahxinyu/notezzz",
       },
       customCss: [
         // Path to your Tailwind base styles:

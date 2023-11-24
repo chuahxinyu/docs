@@ -15,4 +15,4 @@ title: IMC Things
 
 ## Onboarding
 
-- [Trading Terminology](/unimelb-notes/imc/trading-terms)
+- [Trading Terminology](/notezzz/imc/trading-terms)
