@@ -9,7 +9,6 @@ import rehypeExternalLinks from "rehype-external-links";
 // https://astro.build/config
 export default defineConfig({
   site: "https://chuahxinyu.github.io",
-  base: "/notezzz",
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex, rehypeExternalLinks],
